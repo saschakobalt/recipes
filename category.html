@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category - BY ALÉ</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-brand">
+      <a href="index.html" class="logo-text">BY ALÉ</a>
+    </div>
+    <div class="nav-center" id="nav-center">
+      <ul class="nav-links">
+        <li><a href="index.html">Recipes</a></li>
+        <li><span class="nav-disabled">Blog (WIP)</span></li>
+      </ul>
+      <div class="search-panel" id="search-panel" aria-hidden="true">
+        <label class="sr-only" for="search-input">Search recipes</label>
+        <input type="search" id="search-input" placeholder="Search" autocomplete="off">
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" id="search-toggle" class="search-toggle-btn" aria-label="Open recipe search">
+        <span class="material-symbols-outlined">search</span>
+      </button>
+      <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+        <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="category-header">
+      <h1 id="category-title"></h1>
+    </div>
+
+    <section class="expressive-filters-container">
+      <button type="button" class="filter-toggle-btn" id="filter-toggle">
+        <span class="btn-text">Filter & Sort</span>
+        <span class="toggle-icon">↓</span>
+      </button>
+
+      <div class="expressive-filters" id="filters-content">
+        <div class="filter-section">
+          <span class="filter-label">Continent</span>
+          <div class="chips-group" id="continent-chips"></div>
+        </div>
+
+        <div class="filter-section">
+          <span class="filter-label">Country</span>
+          <div class="chips-group" id="country-chips"></div>
+        </div>
+
+        <div class="filter-section sort-section">
+          <span class="filter-label">Sort</span>
+          <div class="chips-group" id="sort-chips">
+            <button class="chip active" data-value="default">Default</button>
+            <button class="chip" data-value="title-asc">A – Z</button>
+            <button class="chip" data-value="title-desc">Z – A</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-results-section" id="search-results-section" hidden>
+      <h2 class="section-title">Search Results</h2>
+      <p class="search-results-summary" id="search-results-summary"></p>
+      <div class="recipes-grid search-results-grid" id="search-results-grid"></div>
+    </section>
+
+    <div class="recipes-grid" id="recipes-grid"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="social-links">
+        <a class="social-link" href="https://www.instagram.com/saschakobalt" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram profile">
+          <span class="social-icon" aria-hidden="true">
+            <i class="fa-brands fa-instagram"></i>
+          </span>
+          <span class="social-text">Instagram • @saschakobalt</span>
+        </a>
+        <a class="social-link" href="faq.html" aria-label="Open FAQ page">
+          <span class="social-icon" aria-hidden="true">
+            <i class="fa-solid fa-circle-question"></i>
+          </span>
+          <span class="social-text">FAQ</span>
+        </a>
+        <a class="social-link" href="https://forms.gle/3FCcQHXBFqMiV2AYA" target="_blank" rel="noopener noreferrer" aria-label="Open feedback form">
+          <span class="social-icon" aria-hidden="true">
+            <i class="fa-solid fa-envelope"></i>
+          </span>
+          <span class="social-text">Report a problem • Google Form</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

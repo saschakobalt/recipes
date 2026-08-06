@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — BY ALÉ</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-brand">
+      <a href="index.html" class="logo-text">BY ALÉ</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Recipes</a></li>
+      <li><span class="nav-disabled">Blog (WIP)</span></li>
+    </ul>
+    <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+      <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+    </button>
+  </header>
+
+  <main class="container">
+    <section class="category-header">
+      <h1>Frequently Asked Questions</h1>
+    </section>
+
+    <div class="faq-container">
+      <details class="ingredients-expandable">
+        <summary class="ingredients-summary">
+          <span>What defines a "classic" recipe here?</span>
+          <span class="material-symbols-outlined summary-icon">expand_more</span>
+        </summary>
+        <div class="faq-answer">
+          <p>All recipes on this site focus on authentic, traditional preparation methods. I aim to preserve original culinary heritage rather than modified modern shortcuts.</p>
+        </div>
+      </details>
+
+      <details class="ingredients-expandable">
+        <summary class="ingredients-summary">
+          <span>Can I substitute certain ingredients?</span>
+          <span class="material-symbols-outlined summary-icon">expand_more</span>
+        </summary>
+        <div class="faq-answer">
+          <p>While you can replace ingredients based on local availability, sticking to the listed original items ensures the authentic taste and texture intended for the dish.</p>
+        </div>
+      </details>
+
+      <details class="ingredients-expandable">
+        <summary class="ingredients-summary">
+          <span>Are the yield and calories exact?</span>
+          <span class="material-symbols-outlined summary-icon">expand_more</span>
+        </summary>
+        <div class="faq-answer">
+          <p>Nutrition information and serving sizes are estimated standard averages per portion to give you a helpful baseline for meal planning.</p>
+        </div>
+      </details>
+
+      <details class="ingredients-expandable">
+        <summary class="ingredients-summary">
+          <span>How often are new recipes added?</span>
+          <span class="material-symbols-outlined summary-icon">expand_more</span>
+        </summary>
+        <div class="faq-answer">
+          <p>New classic recipes are tested, documented, and published regularly. Follow along on Instagram for updates.</p>
+        </div>
+      </details>
+
+      <details class="ingredients-expandable">
+        <summary class="ingredients-summary">
+          <span>Can I share or reuse these recipes?</span>
+          <span class="material-symbols-outlined summary-icon">expand_more</span>
+        </summary>
+        <div class="faq-answer">
+          <p>Feel free to share links to the recipes. If you re-post photos or content on social media or blogs, please provide direct <strong>credit</strong> and a link back to BY ALÉ.</p>
+        </div>
+      </details>
+
+      <details class="ingredients-expandable">
+        <summary class="ingredients-summary">
+          <span>Who made this website and why?</span>
+          <span class="material-symbols-outlined summary-icon">expand_more</span>
+        </summary>
+        <div class="faq-answer">
+          <p>This website was created by Sascha(@saschakobalt), special thanks to Eric(@erichastedt). The goal is to share traditional recipes and preserve culinary heritage. The website is currently under development(aka beta). No AI was used and will never be used.</p>
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="social-links">
+        <a class="social-link" href="https://www.instagram.com/saschakobalt" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram profile">
+          <span class="social-icon" aria-hidden="true">
+            <i class="fa-brands fa-instagram"></i>
+          </span>
+          <span class="social-text">Instagram • @saschakobalt</span>
+        </a>
+        <a class="social-link" href="faq.html" aria-label="Open FAQ page">
+          <span class="social-icon" aria-hidden="true">
+            <i class="fa-solid fa-circle-question"></i>
+          </span>
+          <span class="social-text">FAQ</span>
+        </a>
+        <a class="social-link" href="https://forms.gle/3FCcQHXBFqMiV2AYA" target="_blank" rel="noopener noreferrer" aria-label="Open feedback form">
+          <span class="social-icon" aria-hidden="true">
+            <i class="fa-solid fa-envelope"></i>
+          </span>
+          <span class="social-text">Report a problem • Google Form</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
