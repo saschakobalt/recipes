@@ -15,77 +15,106 @@
       <a href="index.html" class="logo-text">BY ALÉ</a>
     </div>
     <ul class="nav-links">
-      <li><a href="index.html">Recipes</a></li>
-      <li><span class="nav-disabled">Blog (WIP)</span></li>
+      <li><a href="index.html" data-i18n="nav.recipes">Recipes</a></li>
+      <li><span class="nav-disabled" data-i18n="nav.blog">Blog (WIP)</span></li>
     </ul>
-    <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-      <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
-    </button>
+    <div class="header-actions settings-wrapper">
+      <div class="settings-shell">
+        <button type="button" id="theme-toggle" class="theme-toggle-btn settings-toggle-btn" aria-label="Open settings" data-i18n-aria-label="buttons.settings" aria-expanded="false" aria-controls="settings-popover">
+          <span class="material-symbols-outlined" id="theme-icon">settings</span>
+        </button>
+        <div class="settings-popover" id="settings-popover" role="dialog" aria-label="Settings">
+          <div class="settings-group">
+            <span class="settings-label" data-i18n="settings.theme">Theme</span>
+            <div class="settings-option-grid">
+              <button type="button" class="settings-option-btn" data-setting="theme" data-value="light" data-i18n="settings.light">Light</button>
+              <button type="button" class="settings-option-btn" data-setting="theme" data-value="dark" data-i18n="settings.dark">Dark</button>
+            </div>
+          </div>
+          <div class="settings-group">
+            <span class="settings-label" data-i18n="settings.language">Language</span>
+            <div class="settings-option-grid">
+              <button type="button" class="settings-option-btn" data-setting="language" data-value="en" data-i18n="settings.english">English</button>
+              <button type="button" class="settings-option-btn" data-setting="language" data-value="de" data-i18n="settings.german">Deutsch</button>
+              <button type="button" class="settings-option-btn" data-setting="language" data-value="ru" data-i18n="settings.russian">Русский</button>
+            </div>
+          </div>
+          <div class="settings-group">
+            <div class="settings-toggle-row">
+              <span class="settings-label" data-i18n="settings.highContrast">High Contrast</span>
+              <button type="button" class="settings-switch" id="contrast-toggle" data-setting="contrast" aria-pressed="false">
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main class="container">
     <section class="category-header">
-      <h1>Frequently Asked Questions</h1>
+      <h1 data-i18n="faq.title">Frequently Asked Questions</h1>
     </section>
 
     <div class="faq-container">
       <details class="ingredients-expandable">
         <summary class="ingredients-summary">
-          <span>What defines a "classic" recipe here?</span>
+          <span data-i18n="faq.questionOne">What defines a "classic" recipe here?</span>
           <span class="material-symbols-outlined summary-icon">expand_more</span>
         </summary>
         <div class="faq-answer">
-          <p>All recipes on this site focus on authentic, traditional preparation methods. I aim to preserve original culinary heritage rather than modified modern shortcuts.</p>
+          <p data-i18n="faq.answerOne">All recipes on this site focus on authentic, traditional preparation methods. I aim to preserve original culinary heritage rather than modified modern shortcuts.</p>
         </div>
       </details>
 
       <details class="ingredients-expandable">
         <summary class="ingredients-summary">
-          <span>Can I substitute certain ingredients?</span>
+          <span data-i18n="faq.questionTwo">Can I substitute certain ingredients?</span>
           <span class="material-symbols-outlined summary-icon">expand_more</span>
         </summary>
         <div class="faq-answer">
-          <p>While you can replace ingredients based on local availability, sticking to the listed original items ensures the authentic taste and texture intended for the dish.</p>
+          <p data-i18n="faq.answerTwo">While you can replace ingredients based on local availability, sticking to the listed original items ensures the authentic taste and texture intended for the dish.</p>
         </div>
       </details>
 
       <details class="ingredients-expandable">
         <summary class="ingredients-summary">
-          <span>Are the yield and calories exact?</span>
+          <span data-i18n="faq.questionThree">Are the yield and calories exact?</span>
           <span class="material-symbols-outlined summary-icon">expand_more</span>
         </summary>
         <div class="faq-answer">
-          <p>Nutrition information and serving sizes are estimated standard averages per portion to give you a helpful baseline for meal planning.</p>
+          <p data-i18n="faq.answerThree">Nutrition information and serving sizes are estimated standard averages per portion to give you a helpful baseline for meal planning.</p>
         </div>
       </details>
 
       <details class="ingredients-expandable">
         <summary class="ingredients-summary">
-          <span>How often are new recipes added?</span>
+          <span data-i18n="faq.questionFour">How often are new recipes added?</span>
           <span class="material-symbols-outlined summary-icon">expand_more</span>
         </summary>
         <div class="faq-answer">
-          <p>New classic recipes are tested, documented, and published regularly. Follow along on Instagram for updates.</p>
+          <p data-i18n="faq.answerFour">New classic recipes are tested, documented, and published regularly. Follow along on Instagram for updates.</p>
         </div>
       </details>
 
       <details class="ingredients-expandable">
         <summary class="ingredients-summary">
-          <span>Can I share or reuse these recipes?</span>
+          <span data-i18n="faq.questionFive">Can I share or reuse these recipes?</span>
           <span class="material-symbols-outlined summary-icon">expand_more</span>
         </summary>
         <div class="faq-answer">
-          <p>Feel free to share links to the recipes. If you re-post photos or content on social media or blogs, please provide direct <strong>credit</strong> and a link back to BY ALÉ.</p>
+          <p data-i18n="faq.answerFive">Feel free to share links to the recipes. If you re-post photos or content on social media or blogs, please provide direct credit and a link back to BY ALÉ.</p>
         </div>
       </details>
 
       <details class="ingredients-expandable">
         <summary class="ingredients-summary">
-          <span>Who made this website and why?</span>
+          <span data-i18n="faq.questionSix">Who made this website and why?</span>
           <span class="material-symbols-outlined summary-icon">expand_more</span>
         </summary>
         <div class="faq-answer">
-          <p>This website was created by Sascha(@saschakobalt), special thanks to Eric(@erichastedt). The goal is to share traditional recipes and preserve culinary heritage. The website is currently under development(aka beta). No AI was used and will never be used.</p>
+          <p data-i18n="faq.answerSix">This website was created by Sascha(@saschakobalt), special thanks to Eric(@erichastedt). The goal is to share traditional recipes and preserve culinary heritage. The website is currently under development(aka beta). No AI was used and will never be used.</p>
         </div>
       </details>
     </div>
@@ -104,13 +133,13 @@
           <span class="social-icon" aria-hidden="true">
             <i class="fa-solid fa-circle-question"></i>
           </span>
-          <span class="social-text">FAQ</span>
+          <span class="social-text" data-i18n="footer.faq">FAQ</span>
         </a>
         <a class="social-link" href="https://forms.gle/3FCcQHXBFqMiV2AYA" target="_blank" rel="noopener noreferrer" aria-label="Open feedback form">
           <span class="social-icon" aria-hidden="true">
             <i class="fa-solid fa-envelope"></i>
           </span>
-          <span class="social-text">Report a problem • Google Form</span>
+          <span class="social-text" data-i18n="footer.reportProblem">Report a problem • Google Form</span>
         </a>
       </div>
     </div>

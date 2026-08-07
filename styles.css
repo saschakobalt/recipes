@@ -49,6 +49,12 @@
   align-items: center;
   gap: 0.4rem;
   flex-shrink: 0;
+  margin-left: auto;
+}
+
+.settings-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .search-toggle-btn,
@@ -74,6 +80,138 @@
 .search-toggle-btn .material-symbols-outlined,
 .theme-toggle-btn .material-symbols-outlined {
   font-size: 1.4rem;
+}
+
+.settings-shell {
+  position: relative;
+}
+
+.settings-popover {
+  position: absolute;
+  top: calc(100% + 0.65rem);
+  right: 0;
+  min-width: 260px;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background-color: var(--card-bg);
+  box-shadow: 0 14px 46px rgba(0, 0, 0, 0.12);
+  display: none;
+  flex-direction: column;
+  gap: 0.9rem;
+  z-index: 20;
+}
+
+.settings-popover.is-open {
+  display: flex;
+}
+
+.settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.settings-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+
+.settings-option-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.settings-option-btn,
+.settings-switch {
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  font: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.settings-option-btn:hover,
+.settings-switch:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.settings-option-btn.is-active {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border-color: var(--accent-color);
+}
+
+.settings-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.settings-switch {
+  padding: 0.2rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.switch-track {
+  width: 2.35rem;
+  height: 1.3rem;
+  border-radius: 999px;
+  background-color: var(--border-color);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.16rem;
+  transition: background-color 0.2s ease;
+}
+
+.switch-thumb {
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  transform: translateX(0);
+  transition: transform 0.2s ease;
+}
+
+.settings-switch[aria-pressed="true"] .switch-track {
+  background-color: var(--accent-color);
+}
+
+.settings-switch[aria-pressed="true"] .switch-thumb {
+  transform: translateX(1.05rem);
+}
+
+body[data-contrast="high"] {
+  background-image: linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.85) 100%);
+}
+
+body[data-contrast="high"] .hero-section,
+body[data-contrast="high"] .category-card,
+body[data-contrast="high"] .recipe-card,
+body[data-contrast="high"] .settings-popover,
+body[data-contrast="high"] .card,
+body[data-contrast="high"] .ingredients-expandable {
+  box-shadow: 0 0 0 2px var(--text-color);
+}
+
+body[data-contrast="high"] a,
+body[data-contrast="high"] button,
+body[data-contrast="high"] input {
+  text-decoration-thickness: 2px;
+}
+
+body[data-contrast="high"] .logo-text {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
 }
 
 .search-panel {

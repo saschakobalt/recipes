@@ -15,12 +15,41 @@
       <a href="index.html" class="logo-text">BY ALÉ</a>
     </div>
     <ul class="nav-links">
-      <li><a href="index.html">Recipes</a></li>
-      <li><span class="nav-disabled">Blog (WIP)</span></li>
+      <li><a href="index.html" data-i18n="nav.recipes">Recipes</a></li>
+      <li><span class="nav-disabled" data-i18n="nav.blog">Blog (WIP)</span></li>
     </ul>
-    <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-      <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
-    </button>
+    <div class="header-actions settings-wrapper">
+      <div class="settings-shell">
+        <button type="button" id="theme-toggle" class="theme-toggle-btn settings-toggle-btn" aria-label="Open settings" data-i18n-aria-label="buttons.settings" aria-expanded="false" aria-controls="settings-popover">
+          <span class="material-symbols-outlined" id="theme-icon">settings</span>
+        </button>
+        <div class="settings-popover" id="settings-popover" role="dialog" aria-label="Settings">
+          <div class="settings-group">
+            <span class="settings-label" data-i18n="settings.theme">Theme</span>
+            <div class="settings-option-grid">
+              <button type="button" class="settings-option-btn" data-setting="theme" data-value="light" data-i18n="settings.light">Light</button>
+              <button type="button" class="settings-option-btn" data-setting="theme" data-value="dark" data-i18n="settings.dark">Dark</button>
+            </div>
+          </div>
+          <div class="settings-group">
+            <span class="settings-label" data-i18n="settings.language">Language</span>
+            <div class="settings-option-grid">
+              <button type="button" class="settings-option-btn" data-setting="language" data-value="en" data-i18n="settings.english">English</button>
+              <button type="button" class="settings-option-btn" data-setting="language" data-value="de" data-i18n="settings.german">Deutsch</button>
+              <button type="button" class="settings-option-btn" data-setting="language" data-value="ru" data-i18n="settings.russian">Русский</button>
+            </div>
+          </div>
+          <div class="settings-group">
+            <div class="settings-toggle-row">
+              <span class="settings-label" data-i18n="settings.highContrast">High Contrast</span>
+              <button type="button" class="settings-switch" id="contrast-toggle" data-setting="contrast" aria-pressed="false">
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main class="container recipe-container">
@@ -33,32 +62,32 @@
 
     <div class="meta-box">
       <div class="meta-item">
-        <span class="meta-label">Time:</span>
+        <span class="meta-label" data-i18n="recipe.time">Time:</span>
         <span class="meta-value" id="recipe-time"></span>
       </div>
       <div class="meta-item">
-        <span class="meta-label">Yield:</span>
+        <span class="meta-label" data-i18n="recipe.yield">Yield:</span>
         <span class="meta-value" id="recipe-yield"></span>
       </div>
     </div>
 
-    <button type="button" class="print-recipe-btn" id="print-recipe-btn" aria-label="Print this recipe">
+    <button type="button" class="print-recipe-btn" id="print-recipe-btn" aria-label="Print this recipe" data-i18n-aria-label="recipe.print">
       <span class="social-icon" aria-hidden="true">
         <i class="fa-solid fa-print"></i>
       </span>
-      <span class="social-text">Print this recipe(beta)</span>
+      <span class="social-text" data-i18n="recipe.printText">Print this recipe</span>
     </button>
 
     <details class="ingredients-expandable" open>
       <summary class="ingredients-summary">
-        <span>Ingredients</span>
+        <span data-i18n="recipe.ingredients">Ingredients</span>
         <span class="summary-icon">↓</span>
       </summary>
       <ul class="ingredients-list" id="ingredients-list"></ul>
     </details>
 
     <section class="recipe-instructions">
-      <h2 class="instructions-title">Instructions</h2>
+      <h2 class="instructions-title" data-i18n="recipe.instructions">Instructions</h2>
       <ol class="instructions-list" id="instructions-list"></ol>
     </section>
   </main>
@@ -76,13 +105,13 @@
           <span class="social-icon" aria-hidden="true">
             <i class="fa-solid fa-circle-question"></i>
           </span>
-          <span class="social-text">FAQ</span>
+          <span class="social-text" data-i18n="footer.faq">FAQ</span>
         </a>
         <a class="social-link" href="https://forms.gle/3FCcQHXBFqMiV2AYA" target="_blank" rel="noopener noreferrer" aria-label="Open feedback form">
           <span class="social-icon" aria-hidden="true">
             <i class="fa-solid fa-envelope"></i>
           </span>
-          <span class="social-text">Report a problem • Google Form</span>
+          <span class="social-text" data-i18n="footer.reportProblem">Report a problem • Google Form</span>
         </a>
       </div>
     </div>

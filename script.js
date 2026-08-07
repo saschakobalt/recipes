@@ -1,6 +1,15 @@
 async function getData(file) {
   try {
-    const res = await fetch(`./data/${file}`);
+    const currentLang = localStorage.getItem('language') || 'de';
+    
+    let targetFile = file;
+    if (file === 'categories.json') {
+      targetFile = `categories.${currentLang}.json`;
+    } else if (file === 'recipes.json') {
+      targetFile = `recipes.${currentLang}.json`;
+    }
+
+    const res = await fetch(`./data/${targetFile}`);
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
@@ -76,15 +85,18 @@ async function initCategory() {
   const sortContainer = document.getElementById('sort-chips');
   const grid = document.getElementById('recipes-grid');
 
+  if (!continentContainer || !countryContainer || !sortContainer || !grid) return;
+
   const continents = ['all', ...new Set(categoryRecipes.map(r => r.continent).filter(Boolean))];
   const countries = ['all', ...new Set(categoryRecipes.map(r => r.country).filter(Boolean))];
   const filterContainer = document.querySelector('.expressive-filters-container');
   const toggleBtn = document.getElementById('filter-toggle');
 
-  if (toggleBtn && filterContainer) {
+  if (toggleBtn && filterContainer && !toggleBtn.dataset.listenerAttached) {
     toggleBtn.addEventListener('click', () => {
       filterContainer.classList.toggle('is-open');
     });
+    toggleBtn.dataset.listenerAttached = 'true';
   }
 
   continentContainer.innerHTML = continents.map(cont => `
@@ -230,9 +242,6 @@ function buildPrintDocument(recipe) {
       border: 1px solid var(--border-color);
       display: block;
       background: var(--card-bg);
-      filter: saturate(1.25) contrast(1.05) brightness(1.1);
-    }
-
     }
     .print-ingredients {
       background: var(--card-bg);
@@ -332,7 +341,7 @@ async function initRecipe() {
   }
 
   const printButton = document.getElementById('print-recipe-btn');
-  if (printButton) {
+  if (printButton && !printButton.dataset.listenerAttached) {
     printButton.addEventListener('click', () => {
       const printWindow = window.open('', '_blank', 'width=900,height=1000');
       if (!printWindow) return;
@@ -350,10 +359,11 @@ async function initRecipe() {
         printWindow.print();
       }, 250);
     });
+    printButton.dataset.listenerAttached = 'true';
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function loadPageData() {
   const path = window.location.pathname;
   if (path.endsWith('category.html')) {
     initCategory();
@@ -362,6 +372,10 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     initHome();
   }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadPageData();
 });
 
 async function initSearch() {
@@ -378,16 +392,16 @@ async function initSearch() {
     return;
   }
 
-  const recipes = await getData('recipes.json');
-  if (!recipes) return;
-
   const clearResults = () => {
     resultsSection.hidden = true;
     resultsSummary.textContent = '';
     resultsGrid.innerHTML = '';
   };
 
-  const renderResults = (query) => {
+  const renderResults = async (query) => {
+    const recipes = await getData('recipes.json');
+    if (!recipes) return;
+
     const normalizedQuery = query.trim().toLowerCase();
 
     if (!normalizedQuery) {
@@ -426,84 +440,214 @@ async function initSearch() {
     resultsSection.hidden = false;
   };
 
-  searchToggle.addEventListener('click', () => {
-    const isOpen = searchPanel.classList.toggle('is-open');
-    navCenter?.classList.toggle('is-search-active', isOpen);
-    searchPanel.setAttribute('aria-hidden', String(!isOpen));
-    document.body.classList.toggle('search-active', isOpen);
+  if (!searchToggle.dataset.listenerAttached) {
+    searchToggle.addEventListener('click', () => {
+      const isOpen = searchPanel.classList.toggle('is-open');
+      navCenter?.classList.toggle('is-search-active', isOpen);
+      searchPanel.setAttribute('aria-hidden', String(!isOpen));
+      document.body.classList.toggle('search-active', isOpen);
 
-    if (heroLink) {
-      heroLink.hidden = isOpen;
-    }
-
-    if (isOpen) {
-      searchInput.focus();
-      if (searchInput.value.trim()) {
-        renderResults(searchInput.value);
+      if (heroLink) {
+        heroLink.hidden = isOpen;
       }
-    } else {
-      searchInput.blur();
-      clearResults();
-    }
-  });
 
-  searchInput.addEventListener('input', (event) => {
-    renderResults(event.target.value);
-  });
+      if (isOpen) {
+        searchInput.focus();
+        if (searchInput.value.trim()) {
+          renderResults(searchInput.value);
+        }
+      } else {
+        searchInput.blur();
+        clearResults();
+      }
+    });
 
-  searchInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      searchPanel.classList.remove('is-open');
-      searchPanel.setAttribute('aria-hidden', 'true');
-      searchInput.blur();
-      clearResults();
-    }
-  });
+    searchInput.addEventListener('input', (event) => {
+      renderResults(event.target.value);
+    });
 
-  document.addEventListener('click', (event) => {
-    if (!searchPanel.contains(event.target) && !searchToggle.contains(event.target) && searchPanel.classList.contains('is-open')) {
-      searchPanel.classList.remove('is-open');
-      navCenter?.classList.remove('is-search-active');
-      searchPanel.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('search-active');
-      if (heroLink) heroLink.hidden = false;
-      searchInput.blur();
-      clearResults();
-    }
-  });
+    searchInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        searchPanel.classList.remove('is-open');
+        searchPanel.setAttribute('aria-hidden', 'true');
+        searchInput.blur();
+        clearResults();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!searchPanel.contains(event.target) && !searchToggle.contains(event.target) && searchPanel.classList.contains('is-open')) {
+        searchPanel.classList.remove('is-open');
+        navCenter?.classList.remove('is-search-active');
+        searchPanel.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('search-active');
+        if (heroLink) heroLink.hidden = false;
+        searchInput.blur();
+        clearResults();
+      }
+    });
+
+    searchToggle.dataset.listenerAttached = 'true';
+  }
 
   clearResults();
 }
 
-function initTheme() {
-  const toggleBtn = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
-
-  const savedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    if (themeIcon) themeIcon.textContent = 'light_mode';
-  } else {
-    document.documentElement.setAttribute('data-theme', 'light');
-    if (themeIcon) themeIcon.textContent = 'dark_mode';
+async function loadTranslations(language) {
+  try {
+    const response = await fetch(`./data/lang/${language}.json`);
+    if (!response.ok) {
+      throw new Error(`Could not load ${language} translations`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    return null;
   }
+}
 
-  if (!toggleBtn) return;
+function applyTranslations(translations) {
+  if (!translations) return;
 
-  toggleBtn.addEventListener('click', () => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const newTheme = isDark ? 'light' : 'dark';
+  document.querySelectorAll('[data-i18n]').forEach((element) => {
+    const keys = element.getAttribute('data-i18n').split('.');
+    let value = translations;
+    for (const key of keys) {
+      value = value?.[key];
+      if (value === undefined) break;
+    }
 
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    if (typeof value === 'string') {
+      element.textContent = value;
+    }
+  });
 
-    if (themeIcon) {
-      themeIcon.textContent = newTheme === 'dark' ? 'light_mode' : 'dark_mode';
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+    const keys = element.getAttribute('data-i18n-placeholder').split('.');
+    let value = translations;
+    for (const key of keys) {
+      value = value?.[key];
+      if (value === undefined) break;
+    }
+
+    if (typeof value === 'string') {
+      element.setAttribute('placeholder', value);
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+    const keys = element.getAttribute('data-i18n-aria-label').split('.');
+    let value = translations;
+    for (const key of keys) {
+      value = value?.[key];
+      if (value === undefined) break;
+    }
+
+    if (typeof value === 'string') {
+      element.setAttribute('aria-label', value);
     }
   });
 }
 
-document.addEventListener('DOMContentLoaded', initTheme);
-document.addEventListener('DOMContentLoaded', initSearch);
+async function initSettings() {
+  const toggleBtn = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const popover = document.getElementById('settings-popover');
+  const contrastToggle = document.getElementById('contrast-toggle');
+  const optionButtons = Array.from(document.querySelectorAll('.settings-option-btn'));
+  const switchButtons = Array.from(document.querySelectorAll('.settings-switch'));
+
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (themeIcon) {
+      themeIcon.textContent = theme === 'dark' ? 'settings' : 'settings';
+    }
+    optionButtons.filter((btn) => btn.dataset.setting === 'theme').forEach((btn) => {
+      btn.classList.toggle('is-active', btn.dataset.value === theme);
+    });
+  };
+
+  const applyLanguage = async (language) => {
+    localStorage.setItem('language', language);
+    document.documentElement.lang = language;
+    optionButtons.filter((btn) => btn.dataset.setting === 'language').forEach((btn) => {
+      btn.classList.toggle('is-active', btn.dataset.value === language);
+    });
+
+    const translations = await loadTranslations(language);
+    applyTranslations(translations);
+
+    loadPageData();
+  };
+
+  const applyContrast = (enabled) => {
+    localStorage.setItem('contrast', enabled ? 'high' : 'normal');
+    document.body.setAttribute('data-contrast', enabled ? 'high' : 'normal');
+    if (contrastToggle) {
+      contrastToggle.setAttribute('aria-pressed', String(enabled));
+    }
+  };
+
+  const savedTheme = localStorage.getItem('theme');
+  
+  const savedLanguage = localStorage.getItem('language') || 'de';
+  
+  const savedContrast = localStorage.getItem('contrast') === 'high';
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  applyTheme(savedTheme === 'dark' || (!savedTheme && prefersDark) ? 'dark' : 'light');
+  applyContrast(savedContrast);
+  await applyLanguage(savedLanguage);
+
+  if (!toggleBtn || !popover) return;
+
+  const closePopover = () => {
+    popover.classList.remove('is-open');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+  };
+
+  toggleBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isOpen = popover.classList.toggle('is-open');
+    toggleBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!popover.contains(event.target) && !toggleBtn.contains(event.target)) {
+      closePopover();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closePopover();
+    }
+  });
+
+  optionButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const { setting, value } = button.dataset;
+      if (setting === 'theme') {
+        applyTheme(value);
+      } else if (setting === 'language') {
+        applyLanguage(value);
+      }
+      closePopover();
+    });
+  });
+
+  switchButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const nextState = button.getAttribute('aria-pressed') !== 'true';
+      button.setAttribute('aria-pressed', String(nextState));
+      applyContrast(nextState);
+      closePopover();
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initSettings();
+  initSearch();
+});
