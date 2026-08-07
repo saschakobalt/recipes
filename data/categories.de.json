@@ -1,0 +1,32 @@
+[
+  {
+    "id": "breakfast",
+    "title": "Frühstück",
+    "image": "assets/images/cat-breakfast.png"
+  },
+  {
+    "id": "soups",
+    "title": "Suppen",
+    "image": "assets/images/cat-soups.png"
+  },
+  {
+    "id": "appetizers",
+    "title": "Vorspeisen",
+    "image": "assets/images/cat-appetizers.png"
+  },
+  {
+    "id": "mains",
+    "title": "Hauptspeisen",
+    "image": "assets/images/cat-mains.png"
+  },
+  {
+    "id": "dough",
+    "title": "Teig",
+    "image": "assets/images/cat-dough.png"
+  },
+  {
+    "id": "queen-of-desserts",
+    "title": "Königin der Desserts",
+    "image": "assets/images/cat-desserts.png"
+  }
+]

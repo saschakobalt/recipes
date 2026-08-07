@@ -1,0 +1,32 @@
+[
+  {
+    "id": "breakfast",
+    "title": "Завтраки",
+    "image": "assets/images/cat-breakfast.png"
+  },
+  {
+    "id": "soups",
+    "title": "Супы",
+    "image": "assets/images/cat-soups.png"
+  },
+  {
+    "id": "appetizers",
+    "title": "Закуски",
+    "image": "assets/images/cat-appetizers.png"
+  },
+  {
+    "id": "mains",
+    "title": "Основные блюда",
+    "image": "assets/images/cat-mains.png"
+  },
+  {
+    "id": "dough",
+    "title": "Тесто",
+    "image": "assets/images/cat-dough.png"
+  },
+  {
+    "id": "queen-of-desserts",
+    "title": "Королева десертов",
+    "image": "assets/images/cat-desserts.png"
+  }
+]
