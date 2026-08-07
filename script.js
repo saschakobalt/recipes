@@ -230,6 +230,9 @@ function buildPrintDocument(recipe) {
       border: 1px solid var(--border-color);
       display: block;
       background: var(--card-bg);
+      filter: saturate(1.25) contrast(1.05) brightness(1.1);
+    }
+
     }
     .print-ingredients {
       background: var(--card-bg);
