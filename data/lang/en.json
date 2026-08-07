@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "recipes": "Recipes",
+    "blog": "Blog (WIP)"
+  },
+  "buttons": {
+    "search": "Open recipe search",
+    "searchLabel": "Search recipes",
+    "searchPlaceholder": "Search",
+    "settings": "Open settings"
+  },
+  "settings": {
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "language": "Language",
+    "english": "English",
+    "german": "Deutsch",
+    "russian": "Русский",
+    "highContrast": "High Contrast"
+  },
+  "home": {
+    "latestRecipe": "Latest Recipe",
+    "weekendInspiration": "Weekend Inspiration"
+  },
+  "search": {
+    "resultsTitle": "Search Results"
+  },
+  "category": {
+    "filterAndSort": "Filter & Sort",
+    "continent": "Continent",
+    "country": "Country",
+    "sort": "Sort",
+    "default": "Default",
+    "az": "A – Z",
+    "za": "Z – A"
+  },
+  "recipe": {
+    "time": "Time:",
+    "yield": "Yield:",
+    "print": "Print this recipe",
+    "printText": "Print this recipe",
+    "ingredients": "Ingredients",
+    "instructions": "Instructions"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questionOne": "What defines a \"classic\" recipe here?",
+    "answerOne": "All recipes on this site focus on authentic, traditional preparation methods. I aim to preserve original culinary heritage rather than modified modern shortcuts.",
+    "questionTwo": "Can I substitute certain ingredients?",
+    "answerTwo": "While you can replace ingredients based on local availability, sticking to the listed original items ensures the authentic taste and texture intended for the dish.",
+    "questionThree": "Are the yield and calories exact?",
+    "answerThree": "Nutrition information and serving sizes are estimated standard averages per portion to give you a helpful baseline for meal planning.",
+    "questionFour": "How often are new recipes added?",
+    "answerFour": "New classic recipes are tested, documented, and published regularly. Follow along on Instagram for updates.",
+    "questionFive": "Can I share or reuse these recipes?",
+    "answerFive": "Feel free to share links to the recipes. If you re-post photos or content on social media or blogs, please provide direct credit and a link back to BY ALÉ.",
+    "questionSix": "Who made this website and why?",
+    "answerSix": "This website was created by Sascha(@saschakobalt), special thanks to Eric(@erichastedt). The goal is to share traditional recipes and preserve culinary heritage. The website is currently under development(aka beta). No AI was used and will never be used."
+  },
+  "footer": {
+    "faq": "FAQ",
+    "reportProblem": "Report a problem • Google Form"
+  }
+}

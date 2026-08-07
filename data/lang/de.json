@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "recipes": "Rezepte",
+    "blog": "Blog (in Arbeit)"
+  },
+  "buttons": {
+    "search": "Rezeptsuche öffnen",
+    "searchLabel": "Rezepte suchen",
+    "searchPlaceholder": "Suche",
+    "settings": "Einstellungen öffnen"
+  },
+  "settings": {
+    "theme": "Design",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "language": "Sprache",
+    "english": "English",
+    "german": "Deutsch",
+    "russian": "Русский",
+    "highContrast": "Hoher Kontrast"
+  },
+  "home": {
+    "latestRecipe": "Neuestes Rezept",
+    "weekendInspiration": "Wochenend-Inspiration"
+  },
+  "search": {
+    "resultsTitle": "Suchergebnisse"
+  },
+  "category": {
+    "filterAndSort": "Filtern & Sortieren",
+    "continent": "Kontinent",
+    "country": "Land",
+    "sort": "Sortieren",
+    "default": "Standard",
+    "az": "A – Z",
+    "za": "Z – A"
+  },
+  "recipe": {
+    "time": "Zeit:",
+    "yield": "Portionen:",
+    "print": "Dieses Rezept drucken",
+    "printText": "Dieses Rezept drucken",
+    "ingredients": "Zutaten",
+    "instructions": "Anleitung"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "questionOne": "Was macht ein \"klassisches\" Rezept hier aus?",
+    "answerOne": "Alle Rezepte auf dieser Website konzentrieren sich auf authentische, traditionelle Zubereitungsmethoden. Mein Ziel ist es, das ursprüngliche kulinarische Erbe zu bewahren, anstatt veränderte moderne Abkürzungen zu nutzen.",
+    "questionTwo": "Kann ich bestimmte Zutaten ersetzen?",
+    "answerTwo": "Obwohl Sie Zutaten je nach lokaler Verfügbarkeit ersetzen können, sorgt das Festhalten an den aufgeführten Originalzutaten für den authentischen Geschmack und die Textur des Gerichts.",
+    "questionThree": "Sind Ertrag und Kalorien exakt?",
+    "answerThree": "Nährwertangaben und Portionsgrößen sind geschätzte Standarddurchschnitte pro Portion, um Ihnen eine hilfreiche Orientierungshilfe für die Mahlzeitenplanung zu geben.",
+    "questionFour": "Wie oft werden neue Rezepte hinzugefügt?",
+    "answerFour": "Neue klassische Rezepte werden regelmäßig getestet, dokumentiert und veröffentlicht. Folgen Sie auf Instagram für Updates.",
+    "questionFive": "Kann ich diese Rezepte teilen oder wiederverwenden?",
+    "answerFive": "Sie können Links zu den Rezepten gerne teilen. Wenn Sie Fotos oder Inhalte in sozialen Medien oder Blogs erneut veröffentlichen, geben Sie bitte eine direkte Quellenangabe (Credit) und einen Link zurück zu BY ALÉ an.",
+    "questionSix": "Wer hat diese Website gemacht und warum?",
+    "answerSix": "Diese Website wurde von Sascha (@saschakobalt) erstellt, ein besonderer Dank geht an Eric (@erichastedt). Das Ziel ist es, traditionelle Rezepte zu teilen und das kulinarische Erbe zu bewahren. Die Website befindet sich derzeit in der Entwicklung (Beta). Es wurde keine KI verwendet und wird auch nie verwendet werden."
+  },
+  "footer": {
+    "faq": "FAQ",
+    "reportProblem": "Ein Problem melden • Google Formular"
+  }
+  
+}
